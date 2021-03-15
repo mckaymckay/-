@@ -32,6 +32,8 @@ def get_deconv_w_and_b(kernel_size, input_feature_size, output_feature_size,
         [kernel_size, kernel_size, input_feature_size, output_feature_size],
         name=name + '_w')
     b = bias_variable([input_feature_size], name=name + '_b')
+    #     w= <tf.Variable 'uplayer_3_w:0' shape=(2, 2, 512, 1024) dtype=float32>
+    #     b= <tf.Variable 'uplayer_3_b:0' shape=(512,) dtype=float32>
     return w, b
 
 
@@ -76,12 +78,13 @@ def crop_and_concat(x1, x2):
         return tf.concat([x1_crop, x2], 3)
 
 
-batch_size = 1
+batch_size = 1  # 这个到底是什么意思嘞？
 # 16x+124
 image_w = 572
 image_h = 572
 channel = 3
 pool_size = 2
+
 nclass = 2
 down_layer = {}
 
